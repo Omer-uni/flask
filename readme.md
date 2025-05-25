@@ -51,30 +51,9 @@ https://flask-ticket-system-final.onrender.com
 
 
 ## 📂 Proje Dosya Yapısı
-
-```
-├── app.py # Ana Python uygulama dosyası
-├── templates/ # HTML şablonlarının bulunduğu klasör
-│ ├── index.html # Anasayfa
-│ ├── login.html # Giriş formu
-│ ├── register.html # Kayıt formu
-│ └── dashboard.html # ticket paneli
-│ └── create_ticket.html # ticket oluştuğu yer
-│ └── edit_ticket.html # ticketin düzenlendiği yer
-│ └── ticket_acildi.html # ticketin açıldığını bildiren yer
-│ └── ticket_detail.html # oluşturulan ticket görülen yer
-├── uploads/ # resim dosyalar 
-│ └── noname.png # ticketa yerleştirilen resim
-├── requirements.txt # Gerekli Python paketlerini içeren dosya
-└── README.md # bazı gerekli komutlar
-├── instance #dataların kaydolduğu klasor
-│ └── site.db # dataların koydoldugu yer
-├── appjson.py #datadaki verilerin javaya yazdırmasını saglaryan pyton uygulaması
-├── users.json # kullanıcı java cıktısı 
-├── tickets # ticket java çıktısı
-
-```
-
+---
+![Ekran görüntüsü 2025-05-25 120700](https://github.com/user-attachments/assets/5bfd5126-3ee2-4f8f-8e94-7162355df926)
+---
 ## Ekran Görselleri / Kısa Demo 
 
 --Kısa Demo Drive linki
@@ -92,6 +71,7 @@ https://flask-ticket-system-final.onrender.com
 
 ![users](https://github.com/user-attachments/assets/e776dc49-8996-499c-8e53-7865af35983c)
 ---
+
 
 
 
