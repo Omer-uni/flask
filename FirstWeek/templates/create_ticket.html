@@ -1,1 +1,103 @@
 
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destek Talep Sistemi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .baslik {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #333;
+    }
+    .formgrup {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    textarea {
+      height: 150px;
+      resize: vertical;
+    }
+    .buton {
+      background-color: #000;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 20px;
+      display: block;
+      margin: 20px auto 0 auto;
+      transition: background-color 0.3s ease;
+    }
+    .buton:hover {
+      background-color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <div class="baslik">
+    <h1>Destek Talep Sistemi</h1>
+    <form method="post" enctype="multipart/form-data">
+      <div class="formgrup">
+        <label for="name">Adınız Soyadınız:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="formgrup">
+        <label for="email">E-posta Adresiniz:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="formgrup">
+        <label for="priority">Öncelik:</label>
+        <select id="priority" name="priority" required>
+          <option value="Düşük">Düşük</option>
+          <option value="Normal" selected>Normal</option>
+          <option value="Yüksek">Yüksek</option>
+          <option value="Acil">Acil</option>
+        </select>
+      </div>
+      <div class="formgrup">
+        <label for="subject">Konu:</label>
+        <input type="text" id="subject" name="subject" required>
+      </div>
+      <div class="formgrup">
+        <label for="message">Mesajınız:</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <div class="formgrup">
+        <label for="file">Dosya Eki (isteğe bağlı):</label>
+        <input type="file" id="file" name="file">
+      </div>
+      <button type="submit" class="buton">Ticket Oluştur</button>
+    </form>
+  </div>
+</body>
+</html>
