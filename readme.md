@@ -79,18 +79,19 @@ https://flask-ticket-system-final.onrender.com
 
 --Kısa Demo Drive linki
 -https://drive.google.com/file/d/1_6eFo-peq3YFQaoQ299GmA_A7fUtp0Qg/view
+---
 --Arayüz Ekran Görüntüsü
 ![ticketindex](https://github.com/user-attachments/assets/502634bc-a798-4cb1-9818-a7ca5cb3fc48)
 ![ticketpanel](https://github.com/user-attachments/assets/2e5f4189-3b54-47d8-a68b-6fd60422b9af)
 ![createticket](https://github.com/user-attachments/assets/5c1a6d6d-8b47-4ae8-a7dd-a814410a4d76)
-
+---
 --Java Cıktısı
 #java çıktısı ekran goruntusu
 
 ![ticket](https://github.com/user-attachments/assets/657b1622-d8c3-4826-aee9-d192f966a3cd)
 
 ![users](https://github.com/user-attachments/assets/e776dc49-8996-499c-8e53-7865af35983c)
-
+---
 
 
 
