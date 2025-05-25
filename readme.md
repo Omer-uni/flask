@@ -46,8 +46,8 @@ Ayrıca aşağıdaki kütüphaneler kullanılmaktadır:
 > Not: Bu kütüphaneleri `requirements.txt` dosyasından otomatik olarak yükleyebilirsiniz.
 
 ### 🚀 Uygulamayı Başlatma
-Örneğin: 
-Uygulama tarayıcınızda http://127.0.0.1:5000/ adresinde çalışacaktır.
+https://flask-ticket-system-final.onrender.com 
+http://127.0.0.1:5000/ 
 
 
 ## 📂 Proje Dosya Yapısı
