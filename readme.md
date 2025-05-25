@@ -15,8 +15,6 @@ https://flask-ticket-system-final.onrender.com
 
 ## 🚀 Proje Özellikleri
 
-Aşağıya projenizin sunduğu temel işlevleri maddeler halinde yazınız:
-Örneğin:  
 - 🔐 Kullanıcı kayıt ve giriş işlemleri
 - 📚 Yeni veri (örneğin ticket) ekleyebilme
 - 📝 Verileri düzenleyebilme ve silebilme
