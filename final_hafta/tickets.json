@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "firstname": "Ömer",
+        "lastname": "Kültür",
+        "email": "zerkns61@gmail.com",
+        "subject": "Deneme",
+        "message": "Deneme",
+        "priority": "Orta",
+        "status": "İnceleme Bekliyor",
+        "file": null
+    },
+    {
+        "id": 2,
+        "firstname": "Ömer",
+        "lastname": "Kültür",
+        "email": "zerkns61@gmail.com",
+        "subject": "DENEME",
+        "message": "Deneme",
+        "priority": "Yüksek",
+        "status": "İnceleme Bekliyor",
+        "file": null
+    }
+]

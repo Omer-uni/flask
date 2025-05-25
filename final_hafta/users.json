@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "firstname": "Ömer",
+        "lastname": "Kültür",
+        "email": "zerkns61@gmail.com",
+        "password": "pbkdf2:sha256:600000$B72f7Zo2HwydA5TM$9754fdc68603fcce13a75fd594410f7a52298689bde2fc7e91140df18505f2d2"
+    },
+    {
+        "id": 2,
+        "firstname": "Mert",
+        "lastname": "Sancar",
+        "email": "kulturomer06@gmail.com",
+        "password": "pbkdf2:sha256:600000$44YAx29BAWfISumO$a569bcdab4a1ef91f62f7deddd763d0f6911b363d3143c70a29158939051d397"
+    }
+]
