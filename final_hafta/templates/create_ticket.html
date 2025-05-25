@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yeni Ticket Oluştur</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .form-kapsayici {
+      background-color: #fff;
+      width: 100%;
+      max-width: 600px;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: #2c3e50;
+    }
+
+    .formgrup {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #444;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      background-color: #fff;
+    }
+
+    input[readonly] {
+      background-color: #e9ecef;
+      color: #555;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .submit {
+      width: 100%;
+      padding: 12px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+
+    .submit:hover {
+      background-color: #1669c1;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-kapsayici">
+    <h1>Yeni Ticket Oluştur</h1>
+    <form method="POST" action="{{ url_for('create_ticket') }}" enctype="multipart/form-data">
+      <div class="formgrup">
+        <label>Ad:</label>
+        <input type="text" value="{{ current_user.firstname }}" readonly>
+      </div>
+      <div class="formgrup">
+        <label>Soyad:</label>
+        <input type="text" value="{{ current_user.lastname }}" readonly>
+      </div>
+      <div class="formgrup">
+        <label>E-posta:</label>
+        <input type="email" value="{{ current_user.email }}" readonly>
+      </div>
+      <div class="formgrup">
+        <label for="priority">Öncelik:</label>
+        <select id="priority" name="priority" required>
+          <option value="Düşük">Düşük</option>
+          <option value="Orta">Orta</option>
+          <option value="Yüksek">Yüksek</option>
+        </select>
+      </div>
+      <div class="formgrup">
+        <label for="subject">Konu:</label>
+        <input type="text" id="subject" name="subject" required>
+      </div>
+      <div class="formgrup">
+        <label for="message">Mesajınız:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+      <div class="formgrup">
+        <label for="file">Dosya Eki (isteğe bağlı):</label>
+        <input type="file" id="file" name="file">
+      </div>
+      <button type="submit" class="submit">Oluştur</button>
+    </form>
+  </div>
+</body>
+</html>
