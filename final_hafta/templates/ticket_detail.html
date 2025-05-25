@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ticket Detayı</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+      height: auto; /* min-height kaldırıldı */
+    }
+
+    .giris-kutusu {
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      padding: 40px 40px 10px 40px; /* alt padding azaltıldı */
+      width: 100%;
+      max-width: 800px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .detay {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 15px 20px;
+      margin-bottom: 15px;
+    }
+
+    .detay-label {
+      font-weight: 600;
+      color: #555;
+      text-align: right;
+      padding-right: 10px;
+    }
+
+    .detay-value {
+      color: #333;
+      word-wrap: break-word;
+    }
+
+    .mesaj {
+      grid-column: 1 / -1;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 0; /* ekstra boşluk önleniyor */
+    }
+
+    .buton {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      margin: 0 10px;
+    }
+
+    .buton:hover {
+      background-color: #1669c1;
+    }
+
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="giris-kutusu">
+    <h1>Ticket Detayı</h1>
+
+    <div class="detay">
+      <div class="detay-label">ID:</div>
+      <div class="detay-value">{{ ticket.id }}</div>
+
+      <div class="detay-label">Ad Soyad:</div>
+      <div class="detay-value">{{ ticket.firstname }} {{ ticket.lastname }}</div>
+
+      <div class="detay-label">E-posta:</div>
+      <div class="detay-value">{{ ticket.email }}</div>
+
+      <div class="detay-label">Konu:</div>
+      <div class="detay-value">{{ ticket.subject }}</div>
+
+      <div class="detay-label">Öncelik:</div>
+      <div class="detay-value">{{ ticket.priority }}</div>
+
+      <div class="detay-label">Durum:</div>
+      <div class="detay-value">{{ ticket.status }}</div>
+
+      {% if ticket.file %}
+        <div class="detay-label">Dosya Eki:</div>
+        <div class="detay-value">
+          <a href="{{ url_for('uploaded_file', filename=ticket.file) }}">{{ ticket.file }}</a>
+        </div>
+      {% endif %}
+
+      <div class="detay-label">Mesaj:</div>
+      <div class="mesaj">{{ ticket.message }}</div>
+    </div>
+
+    <div class="buttons">
+      <a href="{{ url_for('dashboard') }}" class="buton">Geri Dön</a>
+      <a href="{{ url_for('edit_ticket', ticket_id=ticket.id) }}" class="buton">Düzenle</a>
+    </div>
+  </div>
+</body>
+</html>

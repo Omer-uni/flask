@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giriş Yap</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .giris-kutusu {
+      background-color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .form-grubu {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .gonder {
+      width: 100%;
+      padding: 12px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+
+    .gonder:hover {
+      background-color: #1669c1;
+    }
+
+    .yardim-metin {
+      font-size: 0.9rem;
+      margin-top: 15px;
+    }
+
+    .yardim-metin a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    .yardim-metin a:hover {
+      text-decoration: underline;
+    }
+
+    .alert {
+      background-color: #fdecea;
+      color: #b71c1c;
+      border: 1px solid #f5c6cb;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="giris-kutusu">
+    <h1>Giriş Yap</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('login') }}">
+      <div class="form-grubu">
+        <label for="email">E-posta:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-grubu">
+        <label for="password">Şifre:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit" class="gonder">Giriş Yap</button>
+    </form>
+
+    <p class="yardim-metin"><a href="{{ url_for('register') }}">Kayıt Olmak İçin Tıklayın</a></p>
+  </div>
+</body>
+</html>

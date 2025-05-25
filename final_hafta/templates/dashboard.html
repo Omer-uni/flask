@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ticket Paneli</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .giris-kutusu {
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      padding: 40px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      font-size: 0.95rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+
+    tr.ticket-row {
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    tr.ticket-row:hover {
+      background-color: #f1f1f1;
+    }
+
+    .butonlar {
+      display: none;
+      background-color: #f9f9f9;
+    }
+
+    .butonlar td {
+      padding: 14px 0;
+    }
+
+    .butonlar td > div {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .buton {
+      padding: 8px 12px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .buton:hover {
+      background-color: #1669c1;
+    }
+
+    .buton-sil {
+      background-color: #dc3545;
+    }
+
+    .buton-sil:hover {
+      background-color: #c82333;
+    }
+
+    .actions {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .buton-return {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      font-size: 1rem;
+    }
+
+    .buton-return:hover {
+      background-color: #1669c1;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 20px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="giris-kutusu">
+    <h1>Ticket Paneli</h1>
+
+    {% if tickets %}
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Ad Soyad</th>
+          <th>Konu</th>
+          <th>Öncelik</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ticket in tickets %}
+        <tr class="ticket-row" onclick="toggleButtons({{ ticket.id }})">
+          <td>{{ ticket.id }}</td>
+          <td>{{ ticket.firstname }} {{ ticket.lastname }}</td>
+          <td>{{ ticket.subject }}</td>
+          <td>
+            {% if ticket.priority == 'Yüksek' %}
+              <span style="color: #dc3545; font-weight: bold;">Yüksek</span>
+            {% elif ticket.priority == 'Orta' %}
+              <span style="color: #ffc107;">Orta</span>
+            {% else %}
+              <span style="color: #28a745;">Düşük</span>
+            {% endif %}
+          </td>
+        </tr>
+        <tr id="buttons-{{ ticket.id }}" class="butonlar">
+          <td colspan="4">
+            <div>
+              <a href="{{ url_for('ticket_detail', ticket_id=ticket.id) }}" class="buton">Görüntüle</a>
+              <a href="{{ url_for('edit_ticket', ticket_id=ticket.id) }}" class="buton">Düzenle</a>
+              <form method="post" action="{{ url_for('delete_ticket', ticket_id=ticket.id) }}" style="display:inline-block;">
+                <button type="submit" class="buton buton-sil" onclick="return confirm('Bu ticketı silmek istediğinize emin misiniz?');">Sil</button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+      <p style="margin-top: 40px; font-size: 1rem;">Henüz ticket oluşturulmamış.</p>
+      <p style="font-size: 0.9rem;">Yeni bir destek talebi göndermek için <a href="{{ url_for('create_ticket') }}">buraya tıklayın</a>.</p>
+    {% endif %}
+
+    <div class="actions">
+      <a href="{{ url_for('index') }}" class="buton-return">Ana Sayfaya Dön</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleButtons(id) {
+      const row = document.getElementById('buttons-' + id);
+      const isOpen = row.style.display === 'table-row';
+      document.querySelectorAll('.butonlar').forEach(el => el.style.display = 'none');
+      row.style.display = isOpen ? 'none' : 'table-row';
+    }
+  </script>
+</body>
+</html>

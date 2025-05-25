@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ticket Oluşturuldu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .giris-kutusu {
+      background-color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      padding: 40px;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    .gonder {
+      display: inline-block;
+      margin: 20px auto 0 auto;
+      padding: 12px 20px;
+      background-color: #1a73e8;
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-align: center;
+    }
+
+    .gonder:hover {
+      background-color: #1669c1;
+    }
+
+    a.gonder {
+      display: block;
+      width: fit-content;
+      text-decoration: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    a:not(.gonder) {
+      text-decoration: none;
+      color: #1a73e8;
+    }
+
+    a:not(.gonder):hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="giris-kutusu">
+    <h1>Ticket Başarıyla Oluşturuldu</h1>
+
+    <p><strong>Ad Soyad:</strong> {{ ticket.firstname }} {{ ticket.lastname }}</p>
+    <p><strong>E-posta:</strong> {{ ticket.email }}</p>
+    <p><strong>Konu:</strong> {{ ticket.subject }}</p>
+    <p><strong>Öncelik:</strong> {{ ticket.priority }}</p>
+    <p><strong>Durum:</strong> {{ ticket.status }}</p>
+
+    {% if ticket.file %}
+      <p><strong>Dosya Eki:</strong> 
+         <a href="{{ url_for('uploaded_file', filename=ticket.file) }}">{{ ticket.file }}</a>
+      </p>
+    {% endif %}
+
+    <a href="{{ url_for('dashboard') }}" class="gonder">Ticket Paneline Dön</a>
+  </div>
+</body>
+</html>
