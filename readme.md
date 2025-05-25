@@ -47,7 +47,7 @@ Ayrıca aşağıdaki kütüphaneler kullanılmaktadır:
 
 ### 🚀 Uygulamayı Başlatma
 https://flask-ticket-system-final.onrender.com 
-http://127.0.0.1:5000/ 
+
 
 
 ## 📂 Proje Dosya Yapısı
