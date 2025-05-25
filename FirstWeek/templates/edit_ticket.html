@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head><meta charset="UTF-8"><title>Ticket Düzenle</title></head>
+<body>
+  <h2>Ticket Düzenle</h2>
+  <form method="post">
+    <label>Konu:</label><input type="text" name="subject" value="{{ ticket.subject }}" required><br>
+    <label>Mesaj:</label><textarea name="message" required>{{ ticket.message }}</textarea><br>
+    <label>Durum:</label>
+    <select name="status">
+      <option value="İnceleme Bekliyor" {% if ticket.status == 'İnceleme Bekliyor' %}selected{% endif %}>İnceleme Bekliyor</option>
+      <option value="Çözüm Bekliyor" {% if ticket.status == 'Çözüm Bekliyor' %}selected{% endif %}>Çözüm Bekliyor</option>
+      <option value="Çözüldü" {% if ticket.status == 'Çözüldü' %}selected{% endif %}>Çözüldü</option>
+    </select><br>
+    <button type="submit">Kaydet</button>
+  </form>
+</body>
+</html>

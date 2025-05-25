@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket Detayı</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f5f5f5; padding: 20px; }
+    .baslik { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1 { text-align: center; color: #333; }
+    p { font-size: 16px; }
+    a { display: inline-block; margin-top: 15px; color: #007BFF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="baslik">
+    <h1>Ticket Detayı</h1>
+    <p><strong>Talep No:</strong> {{ ticket.id }}</p>
+    <p><strong>Ad:</strong> {{ ticket.name }}</p>
+    <p><strong>E-posta:</strong> {{ ticket.email }}</p>
+    <p><strong>Konu:</strong> {{ ticket.subject }}</p>
+    <p><strong>Mesaj:</strong> {{ ticket.message }}</p>
+    <p><strong>Öncelik:</strong> {{ ticket.priority }}</p>
+    <p><strong>Durum:</strong> {{ ticket.status }}</p>
+    {% if ticket.file %}
+    <p><strong>Dosya:</strong> <a href="/uploads/{{ ticket.file }}">{{ ticket.file }}</a></p>
+    {% endif %}
+    <a href="/dashboard">Geri Dön</a>
+  </div>
+</body>
+</html>
