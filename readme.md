@@ -36,10 +36,10 @@ Bu projeyi çalıştırmak için bilgisayarınızda aşağıdaki yazılımlar ku
 
 Ayrıca aşağıdaki kütüphaneler kullanılmaktadır:
 
--Flask==3.0.0
--Flask-Login==0.6.3
--Flask-SQLAlchemy==3.1.1
--Werkzeug==3.0.1
+#Flask==3.0.0
+#Flask-Login==0.6.3
+#Flask-SQLAlchemy==3.1.1
+#Werkzeug==3.0.1
 
 > Not: Bu kütüphaneleri `requirements.txt` dosyasından otomatik olarak yükleyebilirsiniz.
 
