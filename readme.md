@@ -94,7 +94,6 @@ asagıdakı agacı kendı sıstemınıze gore duzenlemelısınız. bu sadece orn
 ![users](https://github.com/user-attachments/assets/e776dc49-8996-499c-8e53-7865af35983c)
 
 
-bu altı yazmayacaksın bu rayı metni düzelt yazım yanlışlarını sonra arayız ekran görüntüsüne createticket.png,ticketindex.png,ticketpanel.png lerı koyucan java kısmına ticket.png,users.png sana atııgım resımlerı yerlestır ve pdf olarak at bana
 
 
 
